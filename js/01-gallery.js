@@ -29,7 +29,7 @@ function onImgClick(evt) {
   instance.show();
   if (instance.show()) {
     document.body.addEventListener('keydown', e => {
-      if (e.code === 'Escape' && instance) instance.close();
+      if (e.code === 'Escape') instance.close();
     });
   }
 }
