@@ -28,9 +28,13 @@ function onImgClick(evt) {
     <img src="${evt.target.dataset.source}">`);
   instance.show();
   if (instance.show()) {
-    document.body.addEventListener('keydown', e => {
-      if (e.code === 'Escape') instance.close();
-    });
+    document.body.addEventListener('keydown', onKeyEscTap);
+  }
+
+  function onKeyEscTap(evt) {
+    if (evt.code === 'Escape') {
+      instance.close();
+      document.body.removeEventListener('keydown', onKeyEscTap);
+    }
   }
 }
-console.log(galleryItems);
